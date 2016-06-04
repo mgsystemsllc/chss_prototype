@@ -1,0 +1,325 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Children's Welfare Services</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ <!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!-- Graph CSS -->
+<link href="css/lines.css" rel='stylesheet' type='text/css' />
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- jQuery -->
+<script src="libs/jquery.min.js"></script>
+<!----webfonts--->
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+<!-- Nav CSS -->
+<link href="css/custom.css" rel="stylesheet">
+<!-- Metis Menu Plugin JavaScript -->
+<script src="libs/metisMenu.min.js"></script>
+<script src="libs/custom.js"></script>
+<!-- Graph JavaScript -->
+<script src="libs/d3.v3.js"></script>
+<script src="libs/rickshaw.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script> 
+function loginCheck() {
+
+	var username = localStorage.getItem("username");
+	var password = localStorage.getItem("password");
+	if((typeof username === "undefined")||(typeof password === "undefined") ||
+	   (username === null) || (password === null)) {
+		$("body").hide();
+		window.location = "index.html";
+	}
+	else {
+		$("body").show();
+	}
+}
+</script>
+</head>
+<body style="display:none" onload="loginCheck()">
+<div id="wrapper">
+     <!-- Navigation -->
+        <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Children's Welfare Services</a>
+            </div>
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-nav navbar-right">
+				
+			    <li class="dropdown">
+	        		<a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src="images/1.png"></a>
+	        		<ul class="dropdown-menu">
+						
+				  	<li class="m_2"><a href="create-profile.html"><i class="fa fa-user"></i>Profile</a></li>
+					<li class="m_2"><a href="index.html" onclick="logout();"><i class="fa fa-lock"></i> Logout</a></li>	
+	        		</ul>
+	      		</li>
+			</ul>
+			<form class="navbar-form navbar-right">
+              <!--input type="text" class="form-control" value="Search..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search...';}"-->
+            </form>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="home.html"><i class="fa fa-dashboard fa-fw nav_icon"></i>Dashboard</a>
+                        </li>
+						<li>
+                           <a id="profile" style="cursor: pointer;"><i class="fa fa-user nav_icon"></i>Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-envelope nav_icon"></i>Message Box<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="inbox.html">Inbox</a>
+                                </li>
+                                <li>
+                                    <a href="compose.html">Compose Message</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table nav_icon"></i>Children's Facilities</a>
+                        </li>
+						<li>
+                            <a href="index.html" style="cursor:pointer" onclick="logout();"><i class="fa fa-lock nav_icon"></i>Logout</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <div id="page-wrapper" ng-app="">
+			<div class="col-md-12 graphs">
+				<div class="xs">
+					<!--h3>Create Profile</h3-->
+				<div class="well1 white">
+					<form class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" onsubmit="createUserProfile();">
+					<fieldset>
+						<legend>Personal Information</legend>
+             
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label">First Name</label>
+								<input id="first_name" type="text" class="form-control1 ng-invalid ng-invalid-required ng-touched" ng- required="">
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label">Last Name</label>
+								<input id="last_name" type="text" class="form-control1 ng-invalid ng-invalid-required ng-touched" ng- required="">
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label normal">Date of Birth</label>
+								<input id="dob" type="date" class="form-control1 ng-invalid ng-invalid-required" required="">
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label normal">Occupation</label>
+								<input id="occupation" type="text" class="form-control1 ng-invalid ng-invalid-required" required="">    
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label">Mobile Number</label>
+								<input id="mobile_number" type="text" class="form-control1 ng-invalid ng-invalid-required ng-valid-pattern ng-touched" ng-pattern="/[0-9]/" required="">
+							</div>
+						</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-12" style="padding:0px; margin-top:8px;">
+						<div class="col-sm-6">
+							<div class="radios">
+							<label class="control-label normal">Gender</label>
+							<label for="radio-01" class="label_radio">
+								<input type="radio" name="gender" value="male" checked=""> Male
+							</label>
+							<label for="radio-02" class="label_radio">
+								<input type="radio" name="gender" value="female"> Female
+							</label>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="radios">
+								<label class="control-label normal">Marital Status</label>
+								<label for="radio-01" class="label_radio">
+									<input type="radio" name="married" value="unmarried" checked=""> Unmarried
+								</label>
+								<label for="radio-02" class="label_radio">
+									<input type="radio" name="married" value="married"> Married
+								</label>
+								<label for="radio-03" class="label_radio">
+									<input type="radio" name="married" value="divorced"> Divorced
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				</fieldset>
+				<br>
+				<fieldset>
+				<legend>Spouse Information</legend>
+	    
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label class="control-label">First Name</label>
+						<input id="spouse_first_name" type="text" class="form-control1 ng-invalid ng-invalid-required ng-touched" required="">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label class="control-label">Last Name</label>
+						<input id="spouse_last_name" type="text" class="form-control1 ng-invalid ng-invalid-required ng-touched"  required="">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label class="control-label normal">Date of Birth</label>
+						<input id="spouse_dob" type="date" class="form-control1 ng-invalid ng-invalid-required" required="">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label class="control-label normal">Occupation</label>
+						<input id="spouse_occupation" type="text" class="form-control1 ng-invalid ng-invalid-required" required="">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label class="control-label">Mobile Number</label>
+						<input id="spouse_mobile_number" type="text" class="form-control1 ng-invalid ng-invalid-required ng-valid-pattern ng-touched" ng-pattern="/[0-9]/" required="">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label class="control-label">Email</label>
+						<input id="spouse_email" type="email" class="form-control1 ng-invalid ng-valid-email ng-invalid-required ng-touched" required="">
+					</div>
+				</div>   
+				<div class="col-sm-6">
+					<div class="form-group">
+						<div class="radios">
+							<label class="control-label normal">Gender</label>
+							<label for="radio-01" class="label_radio">
+								<input type="radio" name="spouse_gender" value="male" checked=""> Male
+							</label>
+							<label for="radio-02" class="label_radio">
+								<input type="radio" name="spouse_gender" value="female"> Female
+							</label>
+						</div>
+					</div>
+				</div>
+				</fieldset>
+				<br>
+				<fieldset>
+				<legend>Residential Address</legend>
+				
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label class="control-label">House No./Street</label>
+						<input id="address_street" type="text" class="form-control1 ng-invalid ng-invalid-required ng-touched"  required="">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label class="control-label">Locality</label>
+						<input id="address_locality" type="text" class="form-control1 ng-invalid ng-invalid-required ng-touched"  required="">
+					</div> 
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label class="control-label">State</label>
+						<input id="address_state" type="text" class="form-control1 ng-invalid ng-invalid-required ng-touched"  required="">
+					</div> 
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label class="control-label">Country</label>
+						<input id="address_country" type="text" value="United States" class="form-control1 ng-invalid ng-invalid-required ng-touched"  required="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-6">
+						<label class="control-label">Zip Code</label>
+						<input id="address_zipcode" type="text" class="form-control1 ng-invalid ng-invalid-required ng-touched"  required="">
+					</div>
+				</div>
+				</fieldset>
+				<br>
+				<fieldset>
+				<legend>Child Information</legend>
+               
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label class="control-label">First Name</label>
+						<input id="child_first_name" type="text" class="form-control1 ng-invalid ng-invalid-required ng-touched" required="">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label class="control-label">Last Name</label>
+						<input id="child_last_name" type="text" class="form-control1 ng-invalid ng-invalid-required ng-touched"  required="">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label class="control-label normal">Date of Birth</label>
+						<input id="child_dob" type="date" class="form-control1 ng-invalid ng-invalid-required" required>
+					</div> 
+				</div>
+				<div class="col-sm-6"><br>
+					<div class="form-group">
+						<div class="radios">
+							<label class="control-label normal">Gender</label>
+							<label for="radio-01" class="label_radio">
+							<input type="radio" name="child_gender" value="male" checked=""> Male
+							</label>
+							<label for="radio-02" class="label_radio">
+							<input type="radio" name="child_gender" value="female"> Female
+							</label>
+						</div>
+					</div>
+				</div>
+				</fieldset><br>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Submit</button>
+					<button type="reset" class="btn btn-default">Reset</button>
+				</div>
+				</form>
+			</div>
+    </div>
+		
+	<div class="copy_layout">
+            <p>Copyright &copy; 2016 MG Systems & Software LLC. All Rights Reserved </p>
+	</div>
+    </div>
+      <!-- /#page-wrapper -->
+   </div>
+   <div id="errorSuccessLoadingPopup"></div>
+    <!-- /#wrapper -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="libs/bootstrap.min.js"></script>
+    <script src="js/utility.js"></script>
+    <script src="js/create_profile.js"></script>
+</body>
+</html>

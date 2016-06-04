@@ -1,0 +1,139 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Children's Welfare Services</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ <!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!-- Graph CSS -->
+<link href="css/lines.css" rel='stylesheet' type='text/css' />
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- jQuery -->
+<script src="libs/jquery.min.js"></script>
+<!----webfonts--->
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+<!-- Nav CSS -->
+<link href="css/custom.css" rel="stylesheet">
+<!-- Metis Menu Plugin JavaScript -->
+<script src="libs/metisMenu.min.js"></script>
+<script src="libs/custom.js"></script>
+<!-- Graph JavaScript -->
+<script src="libs/d3.v3.js"></script>
+<script src="libs/rickshaw.js"></script>
+<script> 
+function loginCheck() {
+
+	var username = localStorage.getItem("username");
+	var password = localStorage.getItem("password");
+	if((typeof username === "undefined")||(typeof password === "undefined") ||
+	   (username === null) || (password === null)) {
+		$("body").hide();
+		window.location = "index.html";
+	}
+	else {
+		$("body").show();
+	}
+}
+</script>
+</head>
+<body style="display:none" onload="loginCheck()">
+<div id="wrapper">
+     <!-- Navigation -->
+        <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Children's Welfare Services</a>
+            </div>
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-nav navbar-right">
+				
+			    <li class="dropdown">
+	        		<a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src="images/1.png"></a>
+	        		<ul class="dropdown-menu">
+						
+				  	<li class="m_2"><a href="create-profile.html"><i class="fa fa-user"></i>Profile</a></li>
+					<li class="m_2"><a href="index.html" onclick="logout();"><i class="fa fa-lock"></i> Logout</a></li>	
+	        		</ul>
+	      		</li>
+			</ul>
+			<form class="navbar-form navbar-right">
+              <!--input type="text" class="form-control" value="Search..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search...';}"-->
+            </form>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="home.html"><i class="fa fa-dashboard fa-fw nav_icon"></i>Dashboard</a>
+                        </li>
+						<li>
+                            <a id="profile" style="cursor: pointer;"><i class="fa fa-user nav_icon"></i>Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-envelope nav_icon"></i>Message Box<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="inbox.html">Inbox</a>
+                                </li>
+                                <li>
+                                    <a href="compose.html">Compose Message</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table nav_icon"></i>Children's Facilities</a>
+                        </li>
+						<li>
+							<a href="index.html" style="cursor:pointer" onclick="logout();"><i class="fa fa-lock nav_icon"></i>Logout</a>                        
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <div id="page-wrapper">
+        	
+  		<div>
+			<div class="col-md-7" ></div>
+			<div class="col-md-5" style="background-color:#eeeeee; margin-top:20px;">
+				<p style="padding:10px;">California Department of Social Services 
+				<br> 744 P Street - MS 8-5-75
+				<br> Sacramento, CA 95814</p> 
+				
+			</div>
+		</div><br>
+
+		<div>
+			<div class="col-md-7">
+	 			<img class="img-responsive center-block" src="images/cwds.png" style="margin-left:20px;" alt=""/>
+			</div>
+			<div class="col-md-5" style="margin-bottom:30px; margin-top:20px; padding:10px; max-height:330px; height:330px; background-color:#eeeeee;">
+				<p style="padding:10px;"><b>Recent Annoucements</b></p>
+			</div>
+		</div>
+
+    	     <div class="content_bottom">
+		<div class="copy">
+            		<p>Copyright &copy; 2016 MG Systems & Software LLC. All Rights Reserved </p>
+	    	</div>
+	     </div>
+      <!-- /#page-wrapper -->
+   </div>
+    <!-- /#wrapper -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="libs/bootstrap.min.js"></script>
+    <script src="js/utility.js"></script>
+</body>
+</html>
