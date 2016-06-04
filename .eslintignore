@@ -1,0 +1,6 @@
+node_modules/**
+client/css/**
+client/fonts/**
+client/images/**
+client/libs/**
+client/*.html

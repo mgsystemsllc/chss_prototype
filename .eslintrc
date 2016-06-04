@@ -1,0 +1,42 @@
+{
+  "env" : {
+    "node" : true,
+    "browser": false 
+  },
+  "rules" : {
+    "camelcase": [0, {"properties": "always"}], 
+    "comma-spacing": [1, {"before": false, "after": true}], 
+    "no-mixed-spaces-and-tabs": [2, "smart-tabs"], 
+    "semi": [2, "always"],
+    "semi-spacing": [1, {"before": false, "after": true}], 
+    "strict": 0,
+    "quotes": [0, "double", "avoid-escape"],
+    "no-use-before-define": 1,
+    "curly": 2,
+    "no-underscore-dangle": 0,
+    "no-lonely-if": 1,
+    "no-shadow": 0,
+    "no-unused-vars": [2, {"vars" : "all", "args" : "after-used"}],
+    "no-trailing-spaces": 0,
+    "no-mixed-requires": 0,
+    "space-infix-ops": 1,
+    "key-spacing": 0,
+    "no-multi-spaces": 0,
+    "no-multi-str": 0,
+    "indent": [1, "tab", {"SwitchCase": 1}],
+    "no-undef": 2,
+    "eol-last": 1,
+    "new-cap": [1, {"capIsNew": false, "newIsCap": false}],
+    "no-extra-parens": 0,
+    "no-reserved-keys": 0,
+    "quote-props": [2, "consistent"],
+    "default-case": 1,
+    "no-else-return": 1,
+    "no-eq-null": 1,
+    "no-self-compare": 2,
+    "vars-on-top": 1,
+    "no-undefined": 1,
+    "no-param-reassign": 2,
+	"no-irregular-whitespace": 2
+  }
+}
