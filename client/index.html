@@ -1,0 +1,57 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Children's Welfare Services</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ <!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- jQuery -->
+<script src="libs/jquery.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'> 
+<!-- Bootstrap Core JavaScript -->
+<script src="libs/bootstrap.min.js"></script>
+
+<script src="./js/login.js"></script>
+
+</head>
+<body id="login">
+  <div class="login-logo">
+     <!--a href="#"><img src="images/logo.png" alt=""/></a-->
+  </div>
+  <div class="row">
+	 <div class="col-md-7 center-block">
+		<img class="img-responsive center-block" src="images/childwelfare.png" alt=""/>
+  	</div>
+	<div class="col-md-5"><br>
+		<h2 class="form-heading" ><br><br>login</h2>
+		  <div class="app-cam">
+			  <form onsubmit="return false;">
+				<input id="username" type="text" class="text" value="User name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'User name';}" required>
+				<input id="password" type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required>
+				<div class="submit"><input type="submit" onclick="loginUser();" value="Login"></div>
+				<ul class="new">
+					<!--li class="new_left"><p><a href="#">Forgot Password ?</a></p></li-->
+					<li class="registration"><p class="sign">New here ?<a href="register.html"> Register</a></p></li>
+					<div class="clearfix"></div>
+				</ul>
+			</form>
+		  </div>
+	</div>
+  </div><br>
+  
+   <div class="copy_layout login register">
+      <p>Copyright &copy; 2016 MG Systems & Software LLC. All Rights Reserved </p>
+   </div>
+   <div id="errorSuccessLoadingPopup"></div>
+<!-- Scripts -->
+<script src="js/login.js"></script>
+<script src="js/utility.js"></script>
+</body>
+</html>
